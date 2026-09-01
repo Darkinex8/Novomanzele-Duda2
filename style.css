@@ -885,10 +885,10 @@ input:focus, select:focus, textarea:focus {
 
 
 /* =========================================================
-   ZELENÁ SVATEBNÍ PALETA – REDESIGN
+   NOVÝ VZHLED – ZELENÁ SVATEBNÍ PALETA
    Dominantní: šalvěj / eukalyptus / lahvově zelená
    Podklad: teplá slonová kost
-   Akcent: střídmé staré zlato
+   Akcent: velmi střídmé staré zlato
    ========================================================= */
 
 html { scroll-behavior: smooth; }
@@ -906,8 +906,11 @@ body {
         radial-gradient(circle at 88% 15%, rgba(203,215,200,.24), transparent 30%),
         linear-gradient(135deg, #edf2eb 0%, #faf8f3 52%, #e4ece2 100%);
 }
+
 .invitation-overlay::before,
-.invitation-overlay::after { border-color: rgba(72,99,77,.20); }
+.invitation-overlay::after {
+    border-color: rgba(72,99,77,.20);
+}
 
 .invitation-card {
     border: 1px solid rgba(72,99,77,.45);
@@ -916,22 +919,34 @@ body {
     color: var(--color-dark-green);
     box-shadow: 0 28px 70px rgba(32,59,43,.14), 0 8px 20px rgba(32,59,43,.06);
 }
+
 .invitation-card:hover {
     box-shadow: 0 36px 85px rgba(32,59,43,.18), 0 10px 25px rgba(32,59,43,.08);
 }
+
+.invitation-card:focus-visible { outline-color: var(--color-medium-green); }
 .invitation-card::before,
 .invitation-card::after { border-color: var(--color-medium-green); }
+
 .invitation-kicker,
-.invitation-names em,
-.invitation-ornament { color: var(--color-medium-green); }
+.invitation-rule,
+.invitation-ornament,
+.invitation-names em { color: var(--color-medium-green); }
 .invitation-rule { background: var(--color-medium-green); }
 .invitation-place { color: var(--color-medium-green); }
 .invitation-hint { color: var(--color-sage); }
 
-/* Hero */
-.hero-section {
-    background: radial-gradient(circle at 50% 50%, #fbfaf6 0%, #f1f5ef 100%);
+/* Sekce */
+.section-heading {
+    color: var(--color-dark-green);
+    letter-spacing: 2.5px;
 }
+
+.hero-section {
+    background:
+        radial-gradient(circle at 50% 50%, #fbfaf6 0%, #f1f5ef 100%);
+}
+
 .hero-section::after {
     content: '';
     position: absolute;
@@ -941,11 +956,13 @@ body {
         radial-gradient(circle at 8% 18%, rgba(145,165,143,.14), transparent 22%),
         radial-gradient(circle at 92% 78%, rgba(72,99,77,.09), transparent 25%);
 }
+
 .names-title { color: var(--color-dark-green); }
-.names-title .amp,
+.names-title .amp { color: var(--color-medium-green); }
 .say-yes { color: var(--color-medium-green); }
 .quote { color: #59625b; }
 
+/* Jemné listy v hero */
 .hero-background-leaves::before,
 .hero-background-leaves::after {
     background:
@@ -961,31 +978,41 @@ body {
 
 /* Informace */
 .info-section { background: var(--color-ivory); }
+
 .heart-calendar-card {
     background: var(--color-pale-green);
     border: 1px solid var(--color-green-border);
     border-radius: 22px;
 }
+
 .heart-shape {
     border-color: var(--color-medium-green);
     background: rgba(250,248,243,.55);
 }
+
 .heart-day-num { color: var(--color-dark-green); }
 .heart-month-year { color: var(--color-medium-green); }
 .cal-header span { color: var(--color-sage); }
+
 .cal-days .active-heart {
     background: var(--color-medium-green);
     color: #fff;
 }
-.info-text h2, .info-text h3 { color: var(--color-dark-green); }
-.sub-address, .time-highlight { color: var(--color-text-muted); }
+
+.info-text h2,
+.info-text h3 { color: var(--color-dark-green); }
+
+.sub-address,
+.time-highlight { color: var(--color-text-muted); }
 
 .countdown-wrapper {
     background: #e5ece2;
     border: 1px solid var(--color-green-border);
     border-radius: 14px;
 }
-.countdown-title, .time-box span { color: var(--color-dark-green); }
+
+.countdown-title { color: var(--color-dark-green); }
+.time-box span { color: var(--color-dark-green); }
 .colon { color: var(--color-medium-green); }
 
 .calendar-btn {
@@ -993,6 +1020,7 @@ body {
     background: var(--color-medium-green);
 }
 .calendar-btn:hover { background: var(--color-dark-green); }
+
 .calendar-google-btn {
     border-color: rgba(72,99,77,.35);
     color: var(--color-dark-green);
@@ -1005,70 +1033,100 @@ body {
     border: 1px solid var(--color-green-border);
     box-shadow: 0 10px 30px rgba(32,59,43,.07);
 }
+
 .map-overlay-info h3 { color: var(--color-dark-green); }
-.nav-btn { background: var(--color-medium-green); }
+
+.nav-btn {
+    background: var(--color-medium-green);
+}
 .nav-btn:hover { background: var(--color-dark-green); }
 
 /* Praktické informace */
 .practical-section { background: #f4f6f1; }
+
 .practical-card {
     background: #fff;
     border: 1px solid var(--color-green-border);
     border-radius: 16px;
     box-shadow: 0 8px 22px rgba(32,59,43,.045);
 }
+
 .p-icon { color: var(--color-medium-green); }
 .practical-card h3 { color: var(--color-dark-green); }
 .practical-card p { color: var(--color-text-muted); }
 
-/* Poznámka o dětech */
-.children-note-section { background: var(--color-pale-green); }
+/* Děti */
+.children-note-section {
+    background: var(--color-pale-green);
+}
+
 .age-restriction-card {
     background: rgba(255,255,255,.65);
     border: 1px solid var(--color-green-border);
 }
 .age-restriction-card p { color: var(--color-dark-green); }
 
-/* Dresscode – hlavní barevný vrchol */
+/* Dresscode – hlavní barevný vrchol stránky */
 .dresscode-section {
-    background: linear-gradient(180deg, #faf8f3 0%, #edf2eb 100%);
+    background:
+        linear-gradient(180deg, #faf8f3 0%, #edf2eb 100%);
 }
+
 .dresscode-card {
     background: rgba(255,255,255,.68);
     border: 1px solid var(--color-green-border);
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(32,59,43,.045);
 }
+
 .dresscode-card h3 { color: var(--color-dark-green); }
 .dresscode-card strong { color: var(--color-medium-green); }
+
 .dress-accessory { color: var(--color-medium-green); }
 
 /* RSVP */
 .rsvp-section { background: var(--color-ivory); }
+
 .rsvp-form {
     background: #fff;
     border: 1px solid var(--color-green-border);
     border-radius: 18px;
     box-shadow: 0 10px 32px rgba(32,59,43,.06);
 }
+
 .step-title { color: var(--color-dark-green); }
 .guest-row-grid {
     background: #edf2eb;
     border: 1px solid #dbe5d8;
     border-radius: 12px;
 }
+
 .mini-label { color: var(--color-dark-green); }
+
 input, select, textarea {
     border-color: #d5ddd3;
     background: #fff;
     color: var(--color-text-dark);
 }
+
 input:focus, select:focus, textarea:focus {
     border-color: var(--color-medium-green);
     box-shadow: 0 0 0 3px rgba(72,99,77,.08);
 }
-.add-guest-btn, .gold-btn { background: var(--color-medium-green); }
-.add-guest-btn:hover, .gold-btn:hover { background: var(--color-dark-green); }
+
+.add-guest-btn,
+.gold-btn {
+    background: var(--color-medium-green);
+}
+
+.add-guest-btn:hover,
+.gold-btn:hover {
+    background: var(--color-dark-green);
+}
+
+/* Původní třídu .gold-btn ponecháváme kvůli HTML/JS kompatibilitě,
+   ale vizuálně už nepůsobí jako zlaté tlačítko. */
+.form-status { color: var(--color-medium-green); }
 
 /* Patka */
 .site-footer {
@@ -1076,18 +1134,277 @@ input:focus, select:focus, textarea:focus {
         radial-gradient(circle at 50% 0%, #48634d 0%, transparent 48%),
         var(--color-dark-green);
 }
+
 .footer-names { color: #cbd7c8; }
 
+/* Barevné swatche v dresscodu – sjednocení rámečků */
 .swatch {
     box-shadow: 0 0 0 2px rgba(255,255,255,.72), 0 2px 7px rgba(32,59,43,.16);
 }
 
-.map-section, .rsvp-section {
+/* Jemné oddělení sekcí místo tvrdých bloků */
+.map-section,
+.rsvp-section {
     border-top: 1px solid rgba(72,99,77,.07);
 }
 
+/* Mobil */
 @media (max-width: 768px) {
     .section { padding: 52px 0; }
     .heart-calendar-card { padding: 26px 20px; }
     .rsvp-form { padding: 25px 18px; }
+}
+
+
+/* =========================================================
+   TMAVŠÍ ZELENÁ VARIANTA
+   ========================================================= */
+
+body {
+    background: #17281e;
+    color: #edf2eb;
+}
+
+.main-content {
+    background: #17281e;
+}
+
+/* Obálka */
+.invitation-overlay {
+    background:
+        radial-gradient(circle at 50% 40%, rgba(73,101,79,.32), transparent 38%),
+        radial-gradient(circle at 10% 90%, rgba(32,59,43,.72), transparent 35%),
+        linear-gradient(135deg, #14271c 0%, #203b2b 52%, #102018 100%);
+}
+
+.invitation-card {
+    background: rgba(235,240,233,.97);
+    border-color: rgba(203,215,200,.65);
+    outline-color: rgba(145,165,143,.45);
+    color: #203b2b;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+}
+
+/* Hero */
+.hero-section {
+    background:
+        radial-gradient(circle at 50% 45%, #304c39 0%, #203b2b 48%, #14271c 100%);
+}
+
+.hero-section::after {
+    background:
+        radial-gradient(circle at 8% 18%, rgba(145,165,143,.16), transparent 22%),
+        radial-gradient(circle at 92% 78%, rgba(203,215,200,.08), transparent 25%);
+}
+
+.names-title { color: #f3f5ef; }
+.names-title .amp { color: #b9c9b5; }
+.say-yes { color: #cbd7c8; }
+.quote { color: #d5ddd2; }
+
+.hero-background-leaves::before,
+.hero-background-leaves::after {
+    opacity: .58;
+    filter: saturate(.9);
+}
+
+/* Obecné sekce */
+.section-heading {
+    color: #dce6da;
+}
+
+.info-section {
+    background: #1c3325;
+}
+
+.heart-calendar-card {
+    background: #294534;
+    border-color: #4d6953;
+}
+
+.heart-shape {
+    background: rgba(23,40,30,.35);
+    border-color: #91a58f;
+}
+
+.heart-day-num { color: #f0f4ed; }
+.heart-month-year { color: #cbd7c8; }
+.cal-header span { color: #aabdA8; }
+.cal-days span { color: #d5ddd2; }
+
+.cal-days .active-heart {
+    background: #91a58f;
+    color: #17281e;
+}
+
+.info-text h2,
+.info-text h3 { color: #edf2eb; }
+
+.sub-address,
+.time-highlight { color: #b8c5b5; }
+
+.countdown-wrapper {
+    background: #203b2b;
+    border-color: #4d6953;
+}
+
+.countdown-title,
+.time-box span { color: #edf2eb; }
+
+.time-box label { color: #aebeaa; }
+.colon { color: #aabdA8; }
+
+.calendar-btn {
+    background: #91a58f;
+    border-color: #91a58f;
+    color: #17281e;
+}
+.calendar-btn:hover {
+    background: #b0c1ac;
+}
+
+.calendar-google-btn {
+    border-color: #718871;
+    color: #dce6da;
+}
+.calendar-google-btn:hover {
+    background: rgba(145,165,143,.14);
+}
+
+/* Mapa */
+.map-section {
+    background: #16291e;
+    border-top-color: rgba(203,215,200,.10);
+}
+
+.map-card {
+    background: #223c2b;
+    border-color: #4d6953;
+    box-shadow: 0 14px 35px rgba(0,0,0,.18);
+}
+
+.map-overlay-info h3 { color: #edf2eb; }
+.map-overlay-info p { color: #b8c5b5; }
+
+.nav-btn {
+    background: #91a58f;
+    color: #17281e;
+}
+.nav-btn:hover { background: #b0c1ac; }
+
+/* Praktické informace */
+.practical-section {
+    background: #203b2b;
+}
+
+.practical-card {
+    background: #294534;
+    border-color: #4d6953;
+    box-shadow: 0 10px 28px rgba(0,0,0,.13);
+}
+
+.p-icon { color: #b8c9b4; }
+.practical-card h3 { color: #edf2eb; }
+.practical-card p { color: #c0ccc0; }
+
+/* Poznámka */
+.children-note-section {
+    background: #14271c;
+}
+
+.age-restriction-card {
+    background: rgba(72,99,77,.30);
+    border-color: #4d6953;
+}
+
+.age-restriction-card p { color: #d7e0d4; }
+
+/* Dresscode */
+.dresscode-section {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(145,165,143,.12), transparent 28%),
+        linear-gradient(180deg, #203b2b 0%, #16291e 100%);
+}
+
+.dresscode-card {
+    background: rgba(42,69,52,.72);
+    border-color: #5b755f;
+    box-shadow: 0 12px 32px rgba(0,0,0,.15);
+}
+
+.dresscode-card h3 { color: #f0f4ed; }
+.dresscode-card p { color: #cbd7c8; }
+.dresscode-card strong { color: #b9c9b5; }
+.dress-accessory { color: #c5d2c1; }
+
+/* RSVP */
+.rsvp-section {
+    background: #1a3022;
+    border-top-color: rgba(203,215,200,.10);
+}
+
+.rsvp-form {
+    background: #243e2d;
+    border-color: #526d58;
+    box-shadow: 0 14px 35px rgba(0,0,0,.16);
+}
+
+.step-title { color: #edf2eb; }
+.step-desc { color: #aebeaa; }
+
+.guest-row-grid {
+    background: #1d3526;
+    border-color: #4d6953;
+}
+
+.mini-label { color: #cbd7c8; }
+
+input,
+select,
+textarea {
+    background: #17281e;
+    border-color: #506b56;
+    color: #edf2eb;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #839486;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #91a58f;
+    box-shadow: 0 0 0 3px rgba(145,165,143,.12);
+}
+
+.add-guest-btn,
+.gold-btn {
+    background: #91a58f;
+    color: #17281e;
+}
+
+.add-guest-btn:hover,
+.gold-btn:hover {
+    background: #b0c1ac;
+}
+
+.form-status { color: #b9c9b5; }
+
+/* Footer */
+.site-footer {
+    background:
+        radial-gradient(circle at 50% 0%, #48634d 0%, transparent 50%),
+        #0d1c13;
+}
+
+.footer-names { color: #cbd7c8; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        background:
+            radial-gradient(circle at 50% 45%, #304c39 0%, #203b2b 58%, #14271c 100%);
+    }
 }
