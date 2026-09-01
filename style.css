@@ -1590,3 +1590,228 @@ body,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+
+/* =========================================================
+   V4 – ČITELNOST + SVĚTLÉ FORMULÁŘOVÉ PRVKY
+   ========================================================= */
+
+/* Základ: teplá světlá stránka */
+body,
+.main-content {
+    background: #f7f6f1;
+    color: #26342b;
+}
+
+.section-heading {
+    color: #203b2b !important;
+}
+
+/* HERO – jediná výrazně tmavá velká plocha */
+.hero-section {
+    background:
+        radial-gradient(circle at 50% 45%, #3d5a45 0%, #2b4835 52%, #203a2a 100%);
+}
+.names-title { color: #f8f8f3 !important; }
+.names-title .amp,
+.say-yes { color: #d6e1d2 !important; }
+.quote { color: #e3e9e0 !important; }
+
+/* INFORMACE – světlé pozadí + tmavé písmo */
+.info-section {
+    background: linear-gradient(180deg, #f8f7f2 0%, #edf2eb 100%);
+}
+.info-text h2,
+.info-text h3,
+.heart-day-num {
+    color: #203b2b !important;
+}
+.sub-address,
+.time-highlight {
+    color: #4f5c53 !important;
+}
+.heart-calendar-card {
+    background: #dce7da;
+    border-color: #bdcdbb;
+}
+.heart-month-year {
+    color: #48634d !important;
+}
+.cal-header span,
+.time-box label {
+    color: #5e6b62 !important;
+}
+.cal-days span {
+    color: #334239 !important;
+}
+.cal-days .active-heart {
+    background: #48634d;
+    color: #fff !important;
+}
+.countdown-wrapper {
+    background: #e8eee5;
+    border-color: #c8d6c5;
+}
+.countdown-title,
+.time-box span {
+    color: #203b2b !important;
+}
+.colon {
+    color: #48634d !important;
+}
+.calendar-btn {
+    background: #48634d !important;
+    border-color: #48634d !important;
+    color: #fff !important;
+}
+.calendar-google-btn {
+    background: #fff;
+    border-color: #9eae9a;
+    color: #203b2b !important;
+}
+
+/* MAPA – oddělená zelenošedá plocha */
+.map-section {
+    background: #e8eee6 !important;
+}
+.map-card {
+    background: #fff !important;
+    border-color: #c9d6c6 !important;
+}
+.map-overlay-info h3,
+.map-overlay-info p {
+    color: #203b2b !important;
+}
+.nav-btn {
+    background: #48634d !important;
+    color: #fff !important;
+}
+
+/* PRAKTICKÉ INFO – šalvějová plocha, bílé karty */
+.practical-section {
+    background:
+        radial-gradient(circle at 8% 10%, rgba(255,255,255,.50), transparent 28%),
+        linear-gradient(135deg, #c7d4c4 0%, #b6c8b4 55%, #ced9cb 100%) !important;
+}
+.practical-card {
+    background: rgba(255,255,255,.96) !important;
+    border-color: #c4d1c1 !important;
+    box-shadow: 0 8px 22px rgba(32,59,43,.08) !important;
+}
+.practical-card h3 {
+    color: #203b2b !important;
+}
+.practical-card p {
+    color: #4f5c53 !important;
+}
+.p-icon {
+    color: #48634d !important;
+}
+
+/* DRESSCODE – krémová, aby zelené vzorníky opravdu vynikly */
+.dresscode-section {
+    background: linear-gradient(180deg, #f8f7f2 0%, #e9efe7 100%) !important;
+}
+.dresscode-card {
+    background: #fff !important;
+    border-color: #cbd8c8 !important;
+}
+.dresscode-card h3 {
+    color: #203b2b !important;
+}
+.dresscode-card p {
+    color: #4f5c53 !important;
+}
+.dresscode-card strong {
+    color: #48634d !important;
+}
+.dress-accessory {
+    color: #48634d !important;
+}
+
+/* RSVP – světlý formulář, žádné tmavé inputy/selecty */
+.rsvp-section {
+    background: #edf2eb !important;
+}
+.rsvp-sub {
+    color: #4f5c53 !important;
+}
+.rsvp-form {
+    background: #fff !important;
+    border-color: #cbd8c8 !important;
+    color: #26342b !important;
+}
+.step-title {
+    color: #203b2b !important;
+}
+.step-desc {
+    color: #667168 !important;
+}
+.guest-row-grid {
+    background: #f0f3ee !important;
+    border-color: #d0dbce !important;
+}
+.mini-label {
+    color: #304137 !important;
+}
+input,
+select,
+textarea {
+    background: #fff !important;
+    color: #28362d !important;
+    border: 1px solid #c9d4c7 !important;
+}
+input::placeholder,
+textarea::placeholder {
+    color: #879187 !important;
+}
+select option {
+    background: #fff !important;
+    color: #28362d !important;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #6f896f !important;
+    box-shadow: 0 0 0 3px rgba(72,99,77,.10) !important;
+}
+.add-guest-btn,
+.gold-btn {
+    background: #48634d !important;
+    color: #fff !important;
+}
+.add-guest-btn:hover,
+.gold-btn:hover {
+    background: #304d39 !important;
+}
+.form-status {
+    color: #48634d !important;
+}
+
+/* 15+ samostatně už není potřeba – karta je uvnitř Praktického infa. */
+.children-note-section {
+    display: none !important;
+}
+
+/* FOOTER – tmavé zakončení */
+.site-footer {
+    background:
+        radial-gradient(circle at 50% 0%, #48634d 0%, transparent 52%),
+        #203a29 !important;
+}
+.footer-text-side h2 {
+    color: #f1f4ed !important;
+}
+.footer-names {
+    color: #cbd8c7 !important;
+}
+
+/* Mobil: formulářové prvky zůstávají světlé */
+@media (max-width: 768px) {
+    input,
+    select,
+    textarea {
+        background: #fff !important;
+        color: #28362d !important;
+    }
+}
