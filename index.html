@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Štěpánka & Tomáš | Svatební oznámení</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. SVATEBNÍ POZVÁNKA -->
+    <div id="envelope-overlay" class="invitation-overlay">
+        <button class="invitation-card" type="button" onclick="openEnvelope()" aria-label="Otevřít svatební stránku">
+            <span class="invitation-ornament top">✦</span>
+            <span class="invitation-kicker">SVATEBNÍ OZNÁMENÍ</span>
+            <span class="invitation-names">Štěpánka <em>&amp;</em> Tomáš</span>
+            <span class="invitation-rule"></span>
+            <span class="invitation-date">8. KVĚTNA 2027</span>
+            <span class="invitation-place">MLÝN 1774 · DZBEL</span>
+            <span class="invitation-ornament bottom">✦</span>
+            <span class="invitation-hint">Klikněte pro vstup</span>
+        </button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        
+        <!-- 2. ÚVOD Sekce přes celou obrazovku -->
+        <section class="hero-section">
+            <div class="hero-background-leaves"></div>
+            <div class="hero-content">
+                <h1 class="names-title">
+                    <span>ŠTĚPÁNKA</span>
+                    <span class="amp">a</span>
+                    <span>TOMÁŠ</span>
+                </h1>
+                <p class="say-yes">ŘEKNEME SI SVÉ ANO</p>
+                <p class="quote">„Láska není o tom, jak dlouho vydrží, ale o tom, jak krásně společně roste.“</p>
+            </div>
+        </section>
+
+        <!-- 3. INFORMACE (Datum v srdci, místo, čas, odpočet) -->
+        <section class="section info-section">
+            <div class="container info-grid">
+                
+                <!-- Datum s kalendářem a srdcem -->
+                <div class="heart-calendar-card">
+                    <div class="heart-shape">
+                        <span class="heart-day-num">8.</span>
+                        <span class="heart-month-year">května<br>2027</span>
+                    </div>
+                    <div class="mini-calendar">
+                        <div class="cal-header">
+                            <span>po</span><span>út</span><span>st</span><span>čt</span><span>pá</span><span>so</span><span>ne</span>
+                        </div>
+                        <div class="cal-days">
+                            <span></span><span></span><span></span><span></span><span></span><span>1</span><span>2</span>
+                            <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span class="active-heart">8</span><span>9</span>
+                            <span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+                            <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                            <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                            <span>31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Místo a Čas -->
+                <div class="venue-info">
+                    <div class="info-block">
+                        <div class="icon-pin">📍</div>
+                        <div class="info-text">
+                            <h2>MLÝN 1774</h2>
+                            <p class="sub-address">DZBEL 43</p>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <div class="icon-clock">🕒</div>
+                        <div class="info-text">
+                            <h3>OBŘAD ZAČÍNÁ</h3>
+                            <p class="time-highlight">V 11:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Odpočet -->
+                    <div class="countdown-wrapper">
+                        <p class="countdown-title">DO SVATBY ZBÝVÁ</p>
+                        <div id="countdown" class="countdown-boxes">
+                            <div class="time-box"><span id="days">00</span><label>DNY</label></div>
+                            <span class="colon">:</span>
+                            <div class="time-box"><span id="hours">00</span><label>HODIN</label></div>
+                            <span class="colon">:</span>
+                            <div class="time-box"><span id="minutes">00</span><label>MINUT</label></div>
+                            <span class="colon">:</span>
+                            <div class="time-box"><span id="seconds">00</span><label>SEKUND</label></div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-actions">
+                        <a class="calendar-btn" href="svatba-stepanka-tomas.ics" target="_blank" rel="noopener">PŘIDAT DO KALENDÁŘE</a>
+                        <a class="calendar-google-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Svatebn%C3%AD%20den%20%E2%80%93%20%C5%A0t%C4%9Bp%C3%A1nka%20%26%20Tom%C3%A1%C5%A1&dates=20270508T090000Z/20270508T215900Z&details=Svatebn%C3%AD%20den%20%C5%A0t%C4%9Bp%C3%A1nky%20a%20Tom%C3%A1%C5%A1e.%20Ob%C5%99ad%20za%C4%8D%C3%ADn%C3%A1%20v%2011%3A00.&location=ML%C3%9DN%201774%2C%20Dzbel%2043" target="_blank" rel="noopener">GOOGLE KALENDÁŘ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MAPA -->
+        <section class="section map-section">
+            <div class="container">
+                <div class="map-card">
+                    <div class="map-placeholder">
+                        <iframe src="https://www.google.com/maps?q=49.61515,16.83759&z=17&output=embed" width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="map-overlay-info">
+                        <h3>MLÝN 1774</h3>
+                        <p>Dzbel 43</p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=49.61515,16.83759" target="_blank" class="nav-btn">NAVIGOVAT</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PRAKTICKÉ INFO -->
+        <section class="section practical-section">
+            <div class="container">
+                <h2 class="section-heading">PRAKTICKÉ INFO</h2>
+                <div class="practical-grid">
+                    <div class="practical-card">
+                        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="13"></circle><circle cx="24" cy="24" r="7"></circle></svg></div>
+                        <h3>OBŘAD</h3>
+                        <p>Obřad začne cca v 11:00.<br>Těšíme se na vás!</p>
+                    </div>
+                    <div class="practical-card">
+                        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 29l4-12h20l4 12"></path><path d="M8 29h32v9H8z"></path><circle cx="15" cy="38" r="3"></circle><circle cx="33" cy="38" r="3"></circle></svg></div>
+                        <h3>PARKOVÁNÍ</h3>
+                        <p>Parkování je v areálu, hned u vjezdu.</p>
+                    </div>
+                    <div class="practical-card">
+                        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 34V18h4v16"></path><path d="M13 27h27v7H13"></path><path d="M18 27v-7h10c4 0 6 2 6 7"></path><path d="M9 38h31"></path></svg></div>
+                        <h3>UBYTOVÁNÍ</h3>
+                        <p>Ubytování je také v areálu, míst je dost. Případně si můžete přivézt stan.</p>
+                    </div>
+                    <div class="practical-card">
+                        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 29l4-12h20l4 12"></path><path d="M8 29h32v9H8z"></path><circle cx="15" cy="38" r="3"></circle><circle cx="33" cy="38" r="3"></circle><path d="M17 22h14"></path></svg></div>
+                        <h3>DOPRAVA</h3>
+                        <p>Zaišťte si prosím vlastní odvoz. Děkujeme!</p>
+                    </div>
+
+                    <div class="practical-card">
+                        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 48 48" role="img" aria-label="15+">
+                            <circle cx="24" cy="24" r="17"></circle>
+                            <text x="24" y="29" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" font-weight="600" fill="currentColor" stroke="none">15+</text>
+                        </svg></div>
+                        <h3>VĚK HOSTŮ</h3>
+                        <p>Zváni jsou pouze svatebčané od 15 let, případně po předchozí domluvě i mladší.<br>Děkujeme za pochopení.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. DRESSCODE (Pouze zelená paleta pro dámy) -->
+        <section class="section dresscode-section">
+            <div class="container">
+                <h2 class="section-heading">DRESSCODE</h2>
+                <div class="dresscode-grid">
+                    
+                    <!-- DÁMY - POUZE ZELENÁ PALETA -->
+                    <div class="dresscode-card">
+                        <h3>DÁMY</h3>
+                        <p>Šaty v odstínech <strong>lahvově zelené</strong>, smaragdové, šalvějové či olivové, v kombinaci s béžovými nebo zlatými doplňky.</p>
+                        <div class="swatches">
+                            <span class="swatch" style="background-color: #cdddc9;" title="Světle zelená"></span>
+                            <span class="swatch" style="background-color: #a3b899;" title="Šalvějová"></span>
+                            <span class="swatch" style="background-color: #799374;" title="Středně zelená"></span>
+                            <span class="swatch" style="background-color: #4c694a;" title="Lesní zelená"></span>
+                            <span class="swatch" style="background-color: #2b452c;" title="Tmavě zelená"></span>
+                            <span class="swatch" style="background-color: #162c19;" title="Lahvově zelená"></span>
+                        </div>
+                    </div>
+
+                    <!-- PÁNOVÉ -->
+                    <div class="dresscode-card">
+                        <h3>PÁNOVÉ</h3>
+                        <p>Preferujeme oblek v <strong>černé nebo šedé</strong> barvě. Budeme moc rádi za zelený prvek (kravata, motýlek, kapesníček nebo ponožky).</p>
+                        <div class="swatches" aria-label="Doplňky v lahvově zelené">
+                            <span class="swatch" style="background-color: #666666;" title="Šedá"></span>
+                            <span class="swatch" style="background-color: #1a1a1a;" title="Černá"></span>
+                        </div>
+                        <div class="dress-accessories">
+                            <div class="dress-accessory">
+                                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 16c5 1 10 3 14 7-4 4-9 6-14 7 2-4 2-10 0-14z"></path><path d="M40 16c-5 1-10 3-14 7 4 4 9 6 14 7-2-4-2-10 0-14z"></path><rect x="20" y="20" width="8" height="8" rx="1"></rect><path d="M13 20c3 1 5 2 7 3"></path><path d="M13 28c3-1 5-2 7-3"></path><path d="M35 20c-3 1-5 2-7 3"></path><path d="M35 28c-3-1-5-2-7-3"></path></svg>
+                                <span>Motýlek</span>
+                            </div>
+                            <div class="dress-accessory">
+                                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 31h26v7H11z"></path><path d="M14 31l7-9 5 5 5-7 5 11"></path><path d="M14 31h22"></path></svg>
+                                <span>Kapesníček</span>
+                            </div>
+                            <div class="dress-accessory">
+                                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 8h11v19c0 4 2 7 6 9l6 3v3H22c-5 0-8-3-8-8V8z"></path><path d="M16 13h11"></path><path d="M15 31h15"></path></svg>
+                                <span>Ponožky</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. DOTAZNÍK (RSVP) -->
+        <section class="section rsvp-section">
+            <div class="container">
+                <h2 class="section-heading">PROSÍME O VYPLNĚNÍ DOTAZNÍKU</h2>
+                <p class="rsvp-sub">Prosíme, vyplňte za sebe a všechny, kteří s vámi dorazí.</p>
+
+                <form id="wedding-rsvp-form" action="" method="POST" target="rsvp-submit-frame" class="rsvp-form">
+                    <input type="hidden" name="rsvp_payload" id="rsvp-payload">
+                    <iframe name="rsvp-submit-frame" id="rsvp-submit-frame" class="rsvp-submit-frame" title="Odeslání dotazníku"></iframe>
+                    
+                    <div class="form-step">
+                        <label class="step-title">SEZNAM HOSTŮ <span class="step-desc">Přidejte všechny, kteří s vámi dorazí</span></label>
+                        
+                        <div id="guests-container">
+                            <div class="guest-row-grid">
+                                <div>
+                                    <label class="mini-label">Jméno a příjmení</label>
+                                    <input type="text" name="guest_name_1" placeholder="Jméno hosta" required>
+                                </div>
+                                <div>
+                                    <label class="mini-label">Účast</label>
+                                    <select name="guest_attending_1">
+                                        <option value="Přijede">Přijede</option>
+                                        <option value="Nepřijede">Nepřijede</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="mini-label">Alergie / speciální strava</label>
+                                    <input type="text" name="guest_diet_1" placeholder="např. bez lepku">
+                                </div>
+                                <div>
+                                    <label class="mini-label">Pití</label>
+                                    <select name="guest_drink_1">
+                                        <option value="Pivo">Pivo</option>
+                                        <option value="Víno">Víno</option>
+                                        <option value="Prosecco">Prosecco</option>
+                                        <option value="Nealko">Nealko</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="mini-label">Ubytování</label>
+                                    <select name="guest_sleep_1">
+                                        <option value="Ano">Ano</option>
+                                        <option value="Ne">Ne</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="mini-label">Odvoz</label>
+                                    <select name="guest_transport_1">
+                                        <option value="Zůstávám">Zůstávám</option>
+                                        <option value="Mám vlastní">Mám vlastní</option>
+                                        <option value="Potřebuji zajistit">Potřebuji zajistit</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="add-guest-btn" onclick="addGuestRow()">+ PŘIDAT DALŠÍHO HOSTA</button>
+                    </div>
+
+                    <div class="form-step">
+                        <label class="step-title">POZNÁMKA</label>
+                        <textarea name="poznamka" rows="3" placeholder="Máte nějakou poznámku? Napište nám ji sem."></textarea>
+                    </div>
+
+                    <button type="submit" class="gold-btn submit-btn">ODESLAT ODPOVĚĎ</button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+
+            </div>
+        </section>
+
+        <!-- 9. FOOTER -->
+        <footer class="site-footer">
+            <div class="container footer-content">
+                <div class="footer-text-side">
+                    <h2>TĚŠÍME SE NA VÁS!</h2>
+                    <p class="footer-names">Štěpánka & Tomáš</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
