@@ -1,0 +1,897 @@
+/* RESET A PROMĚNNÉ */
+:root {
+    --color-dark-green: #2c4034;
+    --color-medium-green: #466151;
+    --color-sage: #7a9382;
+    --color-sage-light: #a6b9ac;
+    --color-beige-bg: #eef2ef;
+    --color-beige-card: #e1e8e3;
+    --color-paper-white: #f9fbf9;
+    --color-gold: #c4a34c;
+    --color-gold-hover: #ab8b38;
+    --color-text-dark: #25332b;
+    --color-text-muted: #5a6b60;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-beige-bg);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ZLATÉ SRDÍČKO */
+.gold-heart-divider {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+    line-height: 1;
+}
+
+.gold-heart-divider svg {
+    width: 38px;
+    height: 35px;
+    filter: drop-shadow(0 2px 4px rgba(168, 131, 44, 0.28));
+}
+
+.gold-heart-divider.hero-heart {
+    margin: 12px 0;
+}
+
+.gold-heart-divider.hero-heart svg {
+    width: 44px;
+    height: 40px;
+}
+
+/* 1. VSTUPNÍ POZVÁNKA (z v4) */
+.invitation-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(249,251,249,.95) 0%, rgba(238,242,239,.75) 45%, rgba(166,185,172,.65) 100%),
+        linear-gradient(135deg, #c6d4ca 0%, #eef2ef 50%, #bdcdc2 100%);
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .9s ease, visibility .9s ease;
+}
+
+.invitation-overlay.opened {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.invitation-card {
+    position: relative;
+    z-index: 2;
+    width: min(62vw, 680px);
+    min-height: min(72vh, 650px);
+    padding: clamp(45px, 7vw, 85px) clamp(35px, 6vw, 75px);
+    border: 1px solid rgba(196,163,76,.80);
+    outline: 1px solid rgba(196,163,76,.35);
+    outline-offset: -12px;
+    border-radius: 4px;
+    background: var(--color-paper-white);
+    color: var(--color-dark-green);
+    box-shadow: 0 30px 75px rgba(44,64,52,.22), 0 10px 25px rgba(44,64,52,.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    font: inherit;
+    transform: translateY(0) scale(1);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.invitation-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 38px 90px rgba(44,64,52,.26), 0 12px 30px rgba(44,64,52,.12);
+}
+
+.invitation-card:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 5px;
+}
+
+.card-floral-border {
+    position: absolute;
+    inset: 16px;
+    border: 1px dashed rgba(122,147,130,0.35);
+    pointer-events: none;
+}
+
+.card-floral-border::before,
+.card-floral-border::after {
+    content: '🌿';
+    position: absolute;
+    font-size: 1.4rem;
+    opacity: 0.65;
+}
+.card-floral-border::before { top: -14px; left: 16px; }
+.card-floral-border::after { bottom: -14px; right: 16px; }
+
+.invitation-kicker {
+    font-family: var(--font-body);
+    font-size: clamp(.7rem, 1.1vw, .85rem);
+    letter-spacing: 5px;
+    color: var(--color-gold);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.invitation-names {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    line-height: 1.05;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.invitation-text-middle {
+    margin-top: 26px;
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+    line-height: 1.6;
+    color: var(--color-dark-green);
+    letter-spacing: 1px;
+}
+
+.invitation-text-middle strong {
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: var(--color-medium-green);
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.invitation-hint {
+    margin-top: 38px;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--color-sage);
+    letter-spacing: .5px;
+}
+
+/* CONTAINER & GENERAL SECTIONS */
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-heading {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    text-align: center;
+    color: var(--color-dark-green);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* 2. ÚVOD / HERO SECTION S POSTRANNÍMI KYTKAMI (jako v2) */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(ellipse 85% 45% at 50% 0%, rgba(122,147,130,0.32) 0%, rgba(166,185,172,0.12) 55%, transparent 85%),
+        radial-gradient(ellipse 85% 45% at 50% 100%, rgba(122,147,130,0.22) 0%, transparent 80%),
+        var(--color-beige-bg);
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+.hero-floral-sides {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-floral-sides::before,
+.hero-floral-sides::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 300px;
+    height: 620px;
+    transform: translateY(-50%);
+    opacity: 0.78;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 620'%3E%3Cg fill='none' stroke='%235d7866' stroke-width='1.6'%3E%3Cpath d='M18 600 C46 470, 68 330, 34 190 C14 105, 42 45, 22 10'/%3E%3Cpath d='M36 510 C82 475, 118 448, 158 425'/%3E%3Cpath d='M48 395 C96 355, 138 328, 180 308'/%3E%3Cpath d='M32 275 C84 235, 128 205, 172 182'/%3E%3Cpath d='M28 158 C76 122, 118 95, 158 74'/%3E%3C/g%3E%3Cg fill='%237a9382' fill-opacity='0.60'%3E%3Cellipse cx='64' cy='52' rx='15' ry='28' transform='rotate(-26 64 52)'/%3E%3Cellipse cx='116' cy='88' rx='15' ry='28' transform='rotate(42 116 88)'/%3E%3Cellipse cx='160' cy='74' rx='13' ry='22' transform='rotate(62 160 74)'/%3E%3Cellipse cx='52' cy='152' rx='16' ry='30' transform='rotate(-30 52 152)'/%3E%3Cellipse cx='124' cy='198' rx='16' ry='29' transform='rotate(36 124 198)'/%3E%3Cellipse cx='174' cy='184' rx='13' ry='23' transform='rotate(58 174 184)'/%3E%3Cellipse cx='62' cy='268' rx='17' ry='31' transform='rotate(-22 62 268)'/%3E%3Cellipse cx='134' cy='324' rx='17' ry='31' transform='rotate(44 134 324)'/%3E%3Cellipse cx='182' cy='310' rx='13' ry='22' transform='rotate(65 182 310)'/%3E%3Cellipse cx='64' cy='390' rx='17' ry='31' transform='rotate(-24 64 390)'/%3E%3Cellipse cx='118' cy='446' rx='16' ry='29' transform='rotate(40 118 446)'/%3E%3Cellipse cx='162' cy='428' rx='13' ry='22' transform='rotate(60 162 428)'/%3E%3Cellipse cx='48' cy='506' rx='16' ry='30' transform='rotate(-28 48 506)'/%3E%3C/g%3E%3Cg fill='%23466151' fill-opacity='0.50'%3E%3Cellipse cx='84' cy='116' rx='12' ry='22' transform='rotate(28 84 116)'/%3E%3Cellipse cx='98' cy='230' rx='13' ry='23' transform='rotate(32 98 230)'/%3E%3Cellipse cx='102' cy='356' rx='13' ry='24' transform='rotate(30 102 356)'/%3E%3Cellipse cx='82' cy='472' rx='12' ry='22' transform='rotate(26 82 472)'/%3E%3C/g%3E%3Cg fill='%232c4034' fill-opacity='0.80'%3E%3Ccircle cx='126' cy='58' r='4.8'/%3E%3Ccircle cx='136' cy='66' r='3.8'/%3E%3Ccircle cx='118' cy='67' r='3.4'/%3E%3Ccircle cx='146' cy='252' r='5'/%3E%3Ccircle cx='156' cy='260' r='4'/%3E%3Ccircle cx='138' cy='261' r='3.5'/%3E%3Ccircle cx='132' cy='484' r='4.8'/%3E%3Ccircle cx='142' cy='492' r='3.8'/%3E%3C/g%3E%3Cg fill='%23c4a34c' fill-opacity='0.90'%3E%3Ccircle cx='178' cy='42' r='4'/%3E%3Ccircle cx='102' cy='168' r='3.5'/%3E%3Ccircle cx='196' cy='280' r='4.5'/%3E%3Ccircle cx='108' cy='410' r='3.5'/%3E%3Ccircle cx='176' cy='524' r='4'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-floral-sides::before {
+    left: -18px;
+}
+
+.hero-floral-sides::after {
+    right: -18px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+}
+
+.names-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--color-dark-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.say-yes {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    color: var(--color-medium-green);
+    margin: 25px 0 20px 0;
+    font-weight: 600;
+}
+
+.quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--color-text-dark);
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* 3. INFORMACE & KALENDÁŘ – SYMETRICKÉ ZAROVNÁNÍ OBŮ SLOUPCŮ */
+.info-section {
+    background: var(--color-paper-white);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: stretch;
+}
+
+.heart-calendar-card {
+    text-align: center;
+    background: var(--color-beige-bg);
+    padding: 32px 28px;
+    border-radius: 14px;
+    border: 1px solid rgba(122,147,130,0.28);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.heart-shape {
+    width: 126px;
+    height: 126px;
+    margin: 0 auto 22px auto;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-paper-white);
+}
+
+.heart-day-num {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-dark-green);
+    line-height: 1;
+}
+
+.heart-month-year {
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    text-transform: lowercase;
+    line-height: 1.2;
+}
+
+.mini-calendar {
+    width: 100%;
+    max-width: 265px;
+    margin: 0 auto;
+}
+
+.cal-header, .cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+    font-size: 0.84rem;
+    text-align: center;
+}
+
+.cal-header span {
+    font-weight: 600;
+    color: var(--color-sage);
+}
+
+.cal-days span {
+    padding: 4px 0;
+}
+
+.cal-days .active-heart {
+    background: var(--color-gold);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Pravý sloupec zarovnaný přesně od horní hrany po spodní hranu karty kalendáře */
+.venue-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 4px 0;
+}
+
+.venue-details-top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-pin, .icon-clock {
+    font-size: 2rem;
+    line-height: 1;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.info-text h2, .info-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    color: var(--color-dark-green);
+    letter-spacing: 1px;
+    line-height: 1.15;
+}
+
+.sub-address, .time-highlight {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.countdown-wrapper {
+    background: var(--color-beige-card);
+    padding: 20px 18px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(122,147,130,0.25);
+    width: 100%;
+}
+
+.countdown-title {
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    color: var(--color-dark-green);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.countdown-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 48px;
+}
+
+.time-box span {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-dark-green);
+    line-height: 1.1;
+}
+
+.time-box label {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.colon {
+    font-size: 1.4rem;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.calendar-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.calendar-btn,
+.calendar-google-btn {
+    display: block;
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: 26px;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.calendar-btn {
+    border: 1px solid var(--color-gold);
+    background: var(--color-dark-green);
+    color: white;
+}
+
+.calendar-btn:hover {
+    background: var(--color-medium-green);
+    transform: translateY(-1px);
+}
+
+.calendar-google-btn {
+    border: 1px solid rgba(196,163,76,.65);
+    background: transparent;
+    color: var(--color-dark-green);
+}
+
+.calendar-google-btn:hover {
+    background: rgba(196,163,76,.14);
+    transform: translateY(-1px);
+}
+
+/* 4. MAPA */
+.map-section {
+    background: var(--color-beige-bg);
+}
+
+.map-card {
+    background: var(--color-paper-white);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(44,64,52,0.06);
+    position: relative;
+    border: 1px solid rgba(122,147,130,0.22);
+}
+
+.map-overlay-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0 10px;
+}
+
+.map-overlay-info h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark-green);
+    font-size: 1.4rem;
+}
+
+.nav-btn {
+    background: var(--color-dark-green);
+    color: white;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background: var(--color-medium-green);
+}
+
+/* 5. PRAKTICKÉ INFO (5 rovnocenných karet) */
+.practical-section {
+    background: var(--color-beige-bg);
+}
+
+.practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 16px;
+}
+
+.practical-card {
+    background: var(--color-paper-white);
+    padding: 24px 16px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(122,147,130,.24);
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-sage);
+}
+.p-icon svg {
+    width: 46px;
+    height: 46px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.practical-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--color-dark-green);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.practical-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+}
+
+/* 6. DRESSCODE */
+.dresscode-section {
+    background: var(--color-paper-white);
+    padding-top: 55px;
+}
+
+.dresscode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.dresscode-card {
+    background: var(--color-beige-bg);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(122,147,130,0.22);
+}
+
+.dresscode-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-dark-green);
+    margin-bottom: 8px;
+}
+
+.dresscode-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.dresscode-card strong {
+    color: var(--color-dark-green);
+    font-weight: 600;
+}
+
+.swatches {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dress-accessories {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 18px;
+}
+.dress-accessory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-sage);
+    min-width: 62px;
+}
+.dress-accessory svg {
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.dress-accessory span {
+    font-size: .68rem;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+}
+
+/* 7. DOTAZNÍK (RSVP) */
+.rsvp-section {
+    background: var(--color-beige-bg);
+}
+
+.rsvp-sub {
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    color: var(--color-text-muted);
+}
+
+.rsvp-form {
+    background: var(--color-paper-white);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(44,64,52,0.06);
+    border: 1px solid rgba(122,147,130,0.22);
+}
+
+.form-step {
+    margin-bottom: 30px;
+}
+
+.step-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-dark-green);
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.step-desc {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--color-text-muted);
+    margin: 2px 0 0;
+}
+
+.guest-row-grid {
+    display: grid;
+    grid-template-columns: 2fr 0.9fr 1.7fr 1fr 1.1fr 1fr;
+    gap: 10px;
+    background: var(--color-beige-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(122,147,130,0.2);
+}
+
+.mini-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-dark-green);
+    margin-bottom: 4px;
+    font-weight: 600;
+    min-height: 2.2em;
+    line-height: 1.25;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd6ce;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    background: #ffffff;
+    color: var(--color-text-dark);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-gold);
+}
+
+.add-guest-btn {
+    background: var(--color-dark-green);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+.add-guest-btn:hover {
+    background: var(--color-medium-green);
+}
+
+.gold-btn {
+    background: var(--color-dark-green);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+
+.gold-btn:hover {
+    background: var(--color-medium-green);
+}
+
+.submit-btn {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.form-status {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* 9. FOOTER */
+.site-footer {
+    background: var(--color-dark-green);
+    color: white;
+    padding: 50px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-text-side h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.footer-names {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    font-style: italic;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .hero-floral-sides::before,
+    .hero-floral-sides::after {
+        width: 210px;
+        height: 440px;
+        opacity: 0.55;
+    }
+    .hero-floral-sides::before { left: -30px; }
+    .hero-floral-sides::after { right: -30px; }
+}
+
+@media (max-width: 768px) {
+    .names-title { font-size: 2.8rem; }
+    .info-grid { grid-template-columns: 1fr; }
+    .venue-info { gap: 22px; }
+    .dresscode-grid { grid-template-columns: 1fr; }
+    .guest-row-grid { grid-template-columns: 1fr; }
+    .footer-content { flex-direction: column; gap: 30px; text-align: center; }
+    .map-overlay-info { flex-direction: column; gap: 10px; text-align: center; }
+    .invitation-overlay { padding: 18px; }
+    .invitation-card {
+        width: min(88vw, 520px);
+        min-height: 68vh;
+        padding: 45px 28px;
+    }
+    .invitation-names { font-size: clamp(2.35rem, 11vw, 3.5rem); }
+    .invitation-kicker { letter-spacing: 4px; }
+    .gold-heart-divider svg { width: 30px; height: 27px; }
+    .gold-heart-divider.hero-heart svg { width: 34px; height: 31px; }
+    .hero-floral-sides::before,
+    .hero-floral-sides::after {
+        width: 145px;
+        height: 310px;
+        opacity: 0.35;
+    }
+    .hero-floral-sides::before { left: -24px; }
+    .hero-floral-sides::after { right: -24px; }
+}
+
+@media (max-width: 480px) {
+    .invitation-card { min-height: 72vh; }
+}
+
+.rsvp-submit-frame {
+    display: none;
+    width: 0;
+    height: 0;
+    border: 0;
+}
+
+.step-title .step-desc {
+    display: block;
+    margin-left: 0;
+    margin-top: 2px;
+    font-family: var(--font-body);
+}
