@@ -1,13 +1,5 @@
 /**
  * Google Apps Script pro svatební RSVP.
- *
- * 1) Vytvořte Google Tabulku.
- * 2) Rozšíření -> Apps Script.
- * 3) Vložte tento kód a uložte.
- * 4) Nasadit -> Nové nasazení -> Webová aplikace.
- *    Spouštět jako: Já
- *    Kdo má přístup: Všichni
- * 5) Zkopírujte URL webové aplikace do proměnné RSVP_SHEETS_URL v script.js.
  */
 
 const SHEET_NAME = 'Odpovědi';
