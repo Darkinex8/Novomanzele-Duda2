@@ -59,6 +59,16 @@ body {
     height: 36px;
 }
 
+.gold-heart-divider.footer-heart {
+    margin: 0 8px;
+    vertical-align: middle;
+}
+
+.gold-heart-divider.footer-heart svg {
+    width: 26px;
+    height: 24px;
+}
+
 /* 1. VSTUPNÍ POZVÁNKA – NA PROKLIK */
 .invitation-overlay {
     position: fixed;
@@ -317,6 +327,7 @@ body {
     gap: 6px;
     font-size: 0.8rem;
     text-align: center;
+    align-items: center;
 }
 
 .cal-header span {
@@ -324,15 +335,38 @@ body {
     color: var(--color-sage);
 }
 
-.cal-days span {
+.cal-days > span {
     padding: 3px 0;
 }
 
+/* Srdíčko v kalendáři u čísla 8 – barva #c4a34c */
 .cal-days .active-heart {
-    background: var(--color-gold);
-    color: white;
-    border-radius: 50%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 26px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cal-heart-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cal-heart-num {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
     font-weight: bold;
+    font-size: 0.78rem;
+    line-height: 1;
+    margin-top: -2px;
 }
 
 .venue-info {
@@ -727,7 +761,6 @@ input, select, textarea {
     color: var(--color-text-dark);
 }
 
-/* Nevybraný select má jemně zašedlý placeholder "Vybrat...", po výběru se ztmaví */
 select:invalid {
     color: #8b9a90;
 }
@@ -811,16 +844,19 @@ input:focus, select:focus, textarea:focus {
     font-size: 2.3rem;
     color: var(--color-gold);
     font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
 }
 
 /* RESPONSIVE DESIGN PRO MOBILY */
 @media (max-width: 900px) {
-    /* Na mobilu posuneme rostlinky více ke středu a zvětšíme jejich viditelnost nad/kolem karty */
     .hero-branch {
         height: 58vh;
         min-height: 290px;
         opacity: 0.85;
-        z-index: 3; /* Rostlinky jemně zasahují přes okraj karty, takže jsou krásně vidět */
+        z-index: 3;
     }
     .hero-branch-left { left: -12px; }
     .hero-branch-right { right: -12px; }
@@ -834,10 +870,7 @@ input:focus, select:focus, textarea:focus {
     .hero-mobile-card { padding: 28px 18px; }
     .info-grid { grid-template-columns: 1fr; }
     .venue-info { gap: 20px; }
-    
-    /* Praktické info na mobilu: 1 karta na řádek místo 2 vedle sebe */
     .practical-grid { grid-template-columns: 1fr; gap: 14px; }
-    
     .dresscode-grid { grid-template-columns: 1fr; }
     .guest-row-grid { grid-template-columns: 1fr; }
     .footer-content { flex-direction: column; gap: 25px; text-align: center; }
@@ -845,6 +878,7 @@ input:focus, select:focus, textarea:focus {
     .invitation-overlay { padding: 12px; }
     .gold-heart-divider svg { width: 28px; height: 25px; }
     .gold-heart-divider.hero-heart svg { width: 32px; height: 29px; }
+    .gold-heart-divider.footer-heart svg { width: 22px; height: 20px; }
 }
 
 .rsvp-submit-frame {
