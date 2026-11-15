@@ -23,7 +23,7 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
         
-        <!-- 2. ÚVOD Sekce (na mobilech se zobrazuje jako celistvá pozvánka/karta, na PC s postranními rostlinkami) -->
+        <!-- 2. ÚVOD Sekce -->
         <section class="hero-section">
             <img src="vetvicka-leva.png" alt="" aria-hidden="true" class="hero-branch hero-branch-left">
             <img src="vetvicka-prava.png" alt="" aria-hidden="true" class="hero-branch hero-branch-right">
@@ -247,7 +247,8 @@
                                 </div>
                                 <div>
                                     <label class="mini-label">Účast</label>
-                                    <select name="guest_attending_1">
+                                    <select name="guest_attending_1" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                                        <option value="" disabled selected hidden>Vybrat...</option>
                                         <option value="Přijede">Přijede</option>
                                         <option value="Nepřijede">Nepřijede</option>
                                     </select>
@@ -258,7 +259,8 @@
                                 </div>
                                 <div>
                                     <label class="mini-label">Pití</label>
-                                    <select name="guest_drink_1">
+                                    <select name="guest_drink_1" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                                        <option value="" disabled selected hidden>Vybrat...</option>
                                         <option value="Pivo">Pivo</option>
                                         <option value="Víno">Víno</option>
                                         <option value="Prosecco">Prosecco</option>
@@ -267,14 +269,16 @@
                                 </div>
                                 <div>
                                     <label class="mini-label">Ubytování</label>
-                                    <select name="guest_sleep_1">
+                                    <select name="guest_sleep_1" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                                        <option value="" disabled selected hidden>Vybrat...</option>
                                         <option value="Ano">Ano</option>
                                         <option value="Ne">Ne</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="mini-label">Odvoz</label>
-                                    <select name="guest_transport_1">
+                                    <select name="guest_transport_1" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                                        <option value="" disabled selected hidden>Vybrat...</option>
                                         <option value="Zůstávám">Zůstávám</option>
                                         <option value="Mám vlastní">Mám vlastní</option>
                                         <option value="Potřebuji zajistit">Potřebuji zajistit</option>

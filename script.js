@@ -62,7 +62,8 @@ function addGuestRow() {
         </div>
         <div>
             <label class="mini-label">Účast</label>
-            <select name="guest_attending_${guestIndex}">
+            <select name="guest_attending_${guestIndex}" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                <option value="" disabled selected hidden>Vybrat...</option>
                 <option value="Přijede">Přijede</option>
                 <option value="Nepřijede">Nepřijede</option>
             </select>
@@ -73,7 +74,8 @@ function addGuestRow() {
         </div>
         <div>
             <label class="mini-label">Pití</label>
-            <select name="guest_drink_${guestIndex}">
+            <select name="guest_drink_${guestIndex}" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                <option value="" disabled selected hidden>Vybrat...</option>
                 <option value="Pivo">Pivo</option>
                 <option value="Víno">Víno</option>
                 <option value="Prosecco">Prosecco</option>
@@ -82,14 +84,16 @@ function addGuestRow() {
         </div>
         <div>
             <label class="mini-label">Ubytování</label>
-            <select name="guest_sleep_${guestIndex}">
+            <select name="guest_sleep_${guestIndex}" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                <option value="" disabled selected hidden>Vybrat...</option>
                 <option value="Ano">Ano</option>
                 <option value="Ne">Ne</option>
             </select>
         </div>
         <div>
             <label class="mini-label">Odvoz</label>
-            <select name="guest_transport_${guestIndex}">
+            <select name="guest_transport_${guestIndex}" required onchange="this.classList.toggle('has-value', this.value !== '')">
+                <option value="" disabled selected hidden>Vybrat...</option>
                 <option value="Zůstávám">Zůstávám</option>
                 <option value="Mám vlastní">Mám vlastní</option>
                 <option value="Potřebuji zajistit">Potřebuji zajistit</option>
@@ -137,6 +141,7 @@ if (rsvpForm) {
             statusMessage.style.color = "#2c4034";
             statusMessage.innerText = "Děkujeme! Váš dotazník byl úspěšně odeslán.";
             rsvpForm.reset();
+            document.querySelectorAll("#guests-container select").forEach(s => s.classList.remove("has-value"));
         }, 900);
     });
 }
