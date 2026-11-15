@@ -324,49 +324,40 @@ body {
 .cal-header, .cal-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 4px;
     font-size: 0.8rem;
     text-align: center;
     align-items: center;
+    justify-items: center;
 }
 
 .cal-header span {
     font-weight: 600;
     color: var(--color-sage);
-}
-
-.cal-days > span {
-    padding: 3px 0;
-}
-
-/* Srdíčko v kalendáři u čísla 8 – barva #c4a34c */
-.cal-days .active-heart {
-    position: relative;
+    height: 26px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.cal-days span {
     width: 28px;
     height: 26px;
-    margin: 0 auto;
-    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cal-heart-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.cal-heart-num {
-    position: relative;
-    z-index: 2;
+/* Srdíčko v kalendáři u čísla 8 jako přesné SVG pozadí – nikdy se nedeformuje ani neroztáhne řádek */
+.cal-days .active-heart {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 58'%3E%3Cpath fill='%23c4a34c' d='M32 54.5C30.4 53.1 6 33.4 6 18.2 6 9.8 12.6 3.5 20.6 3.5c4.8 0 9.1 2.3 11.4 6 2.3-3.7 6.6-6 11.4-6 8 0 14.6 6.3 14.6 14.7 0 15.2-24.4 34.9-26 36.3z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 28px 25px;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 0.78rem;
-    line-height: 1;
-    margin-top: -2px;
+    padding-bottom: 2px;
 }
 
 .venue-info {
@@ -470,17 +461,26 @@ body {
 
 .calendar-btn,
 .calendar-google-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     width: 100%;
-    padding: 12px 16px;
+    padding: 11px 16px;
     border-radius: 24px;
     text-align: center;
     text-decoration: none;
     font-family: var(--font-body);
-    font-size: .75rem;
+    font-size: .78rem;
     font-weight: 600;
-    letter-spacing: 1.1px;
+    letter-spacing: 1.2px;
     transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.os-logo-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
 }
 
 .calendar-btn {
